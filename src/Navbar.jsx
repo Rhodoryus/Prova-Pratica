@@ -6,7 +6,7 @@ const Navbar = ({ title, logo }) => {
             <div className="flex flex-column">
                 <div className="logo">
                     <a href="/">
-                        <img src={logo} alt="Logo" />
+                        
                     </a>
                 </div>
                 <div className="titulo">

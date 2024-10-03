@@ -10,11 +10,15 @@ const Form = () => {
     });
     const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/esconder a senha
     const [progress, setProgress] = useState(0); // Estado para a barra de progresso conforme o preenchimento
+    const [showProgressBar, setShowProgressBar] = useState(false); // Estado para controlar a visibilidade da barra de progresso
 
     useEffect(() => {
         const filledFields = Object.values(formData).filter(field => field.trim() !== '').length;
         const totalFields = Object.keys(formData).length;
         setProgress((filledFields / totalFields) * 100); // Calcula a porcentagem da barra de progresso
+
+        // Mostrar a barra de progresso quando ao menos um campo estiver preenchido
+        setShowProgressBar(filledFields > 0);
     }, [formData]); // Atualiza sempre que formData muda
 
     const handleCheckboxChange = () => {
@@ -41,10 +45,14 @@ const Form = () => {
     return (
         <div className="flex flex-column">
             <div className="formulario flex flex-column">
-                <div className="progresso">
-                    <label>Preencha os campos</label>
-                    <progress value={progress} max="100" style={{ appearance: 'none' }}></progress>
-                </div>
+                
+                {/* Mostrar a barra de progresso apenas se algum campo for preenchido */}
+                {showProgressBar && (
+                    <div className="progresso">
+                        <label>Preencha os campos</label>
+                        <progress value={progress} max="100" style={{ appearance: 'none' }}></progress>
+                    </div>
+                )}
 
                 <form onSubmit={handleSubmit}>
                     <div className="flex flex-column">
@@ -83,7 +91,7 @@ const Form = () => {
                     <div className="flex flex-column">
                         <label htmlFor="senha">Digite sua senha</label>
                         <input
-                            type={showPassword ? "text" : "password"} // Alterna entre "text" e "password"
+                            type={showPassword ? "text" : "password"}
                             id="senha"
                             name="senha"
                             value={formData.senha}
