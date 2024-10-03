@@ -9,11 +9,11 @@ const Form = () => {
         senha: '',
     });
     const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/esconder a senha
-    const [progress, setProgress] = useState(0); // Estado para a barra de progresso
+    const [progress, setProgress] = useState(0); // Estado para a barra de progresso conforme o preenchimento
 
     useEffect(() => {
-        const filledFields = Object.values(formData).filter(field => field.trim() !== '').length; // Conta quantos campos estão preenchidos
-        const totalFields = Object.keys(formData).length; // Total de campos
+        const filledFields = Object.values(formData).filter(field => field.trim() !== '').length;
+        const totalFields = Object.keys(formData).length;
         setProgress((filledFields / totalFields) * 100); // Calcula a porcentagem da barra de progresso
     }, [formData]); // Atualiza sempre que formData muda
 
