@@ -1,0 +1,108 @@
+/* style.css */
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: #F7F9FC; /* Cor de fundo clara */
+    color: #333333; /* Cor do texto */
+    margin: 0; /* Remove margens padrão */
+}
+
+main {
+    height: 100vh;
+    display: flex;
+}
+
+main > aside,
+main > div {
+    width: 100%;
+    padding: 64px 20px;
+}
+
+main > aside {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent; /* Fundo transparente */
+}
+
+.titulo {
+    margin-bottom: 24px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    background-color: #FFFFFF; /* Fundo branco */
+    border: 1px solid #E0E0E0; /* Borda cinza claro */
+    height: 60px; /* Aumenta a altura dos campos */
+    padding: 12px; /* Aumenta o espaço interno */
+    outline: none;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 500; /* Leve mudança na espessura */
+    transition: border-color 0.3s; /* Animação suave na mudança de borda */
+    width: 100%; /* Garantir que os campos ocupem toda a largura */
+    margin: 8px 0; /* Espaçamento entre os campos */
+    color: #000000; /* Cor do texto para ficar preto */
+}
+
+.flex-column {
+    align-items: stretch; /* Garante que os elementos ocupem toda a largura */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+    border-color: #6200EE; /* Mudança de borda ao focar */
+}
+
+button.botao {
+    background-color: #6200EE; /* Cor do botão */
+    border-radius: 100px;
+    border: none;
+    color: #FFFFFF; /* Texto branco */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 0px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Animação ao passar o mouse */
+}
+
+button.botao:hover {
+    background-color: #3700B3; /* Cor do botão ao passar o mouse */
+}
+
+button.botao[disabled] {
+    background-color: #BDBDBD; /* Cor do botão desabilitado */
+    color: #868383; /* Texto cinza claro */
+}
+
+.mostra-senha {
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0px;
+    border: none;
+    margin-top: 6px;
+    text-align: right;
+    color: #6200EE; /* Cor do texto do botão "Mostrar Senha" */
+}
+
+progress {
+    border: 0px;
+    width: 100%;
+    height: 8px; /* Aumenta a altura da barra de progresso */
+}
+
+progress::-webkit-progress-bar {
+    background-color: #c8c6c6; /* Fundo da barra de progresso */
+}
+
+progress::-webkit-progress-value {
+    background-color: #04aa6d; /* Cor verde para a parte preenchida */
+}
+
+/* Adicionando a aparência da barra de progresso em navegadores não-webkit */
+progress::-moz-progress-bar {
+    background-color: #04aa6d; /* Cor verde para a parte preenchida em Firefox */
+}
